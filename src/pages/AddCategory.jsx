@@ -145,18 +145,7 @@ const AddCategory = () => {
                   Edit
                 </button>
 
-                <button
-                  onClick={() => handleDelete(cat)}
-                  style={{
-                    padding: "4px 10px",
-                    borderRadius: "12px",
-                    border: "none",
-                    background: "red",
-                    color: "#fff",
-                    cursor: "pointer",
-                    fontSize: "12px",
-                  }}
-                >
+                <button className="btn1" onClick={() => handleDelete(cat)}>
                   Delete
                 </button>
               </div>
@@ -169,6 +158,15 @@ const AddCategory = () => {
 
       {/* STYLES */}
       <style jsx>{`
+        .btn1 {
+          padding: 4px 10px;
+          border-radius: 12px;
+          border: none;
+          background: red;
+          color: #fff;
+          cursor: pointer;
+          fontsize: 12px;
+        }
         .page {
           min-height: 100vh;
           display: flex;

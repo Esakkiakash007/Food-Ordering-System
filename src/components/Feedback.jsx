@@ -11,7 +11,6 @@ const Feedback = () => {
   const [hover, setHover] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  // 🔐 Get logged-in user
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -44,13 +43,12 @@ const Feedback = () => {
     try {
       setLoading(true);
 
-      // 📅 HUMAN READABLE DATE
       const submittedOn = new Date().toLocaleString("en-IN", {
         dateStyle: "medium",
         timeStyle: "short",
       });
 
-      // ✅ SAVE TO FIRESTORE
+
       await addDoc(collection(db, "feedbacks"), {
         name: user.displayName || "User",
         email: user.email,
@@ -60,7 +58,6 @@ const Feedback = () => {
         createdAt: serverTimestamp(),
       });
 
-      // ✅ SEND MAIL USING NODEMAILER BACKEND
       const response = await fetch("http://localhost:5000/api/send-feedback-mail", {
         method: "POST",
         headers: {
