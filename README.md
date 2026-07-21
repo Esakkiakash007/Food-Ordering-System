@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -73,4 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 A full stack food ordering web application with React.js, Node.js, Firebase, Razorpay
 
-> > > > > > > e91627edb81259510d77f44335b20c05343cdc3d
+> > > > > > > # e91627edb81259510d77f44335b20c05343cdc3d
+> > > > > > >
+> > > > > > > Hii
+> > > > > > > 3ebde0a3aa95bb243175fa24767a9e997647358f
