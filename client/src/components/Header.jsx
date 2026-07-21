@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
 
 const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
-  const {} = useCart();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {

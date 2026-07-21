@@ -177,7 +177,7 @@ const Cart = () => {
     const todayList = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((o) => o.createdAt && o.createdAt.toDate().toLocaleDateString() === todayDateString);
 
     setTodayOrders(todayList);
-  }, []);
+  }, [todayDateString]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

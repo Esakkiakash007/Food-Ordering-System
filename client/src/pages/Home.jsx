@@ -8,7 +8,7 @@ import Feedback from "../components/Feedback";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
+  const [, setCategories] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const navigate = useNavigate();
