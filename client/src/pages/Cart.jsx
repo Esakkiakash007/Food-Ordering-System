@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useCart } from "../context/CartContext";
 import { db, auth } from "../firebase";
 import { collection, addDoc, getDocs, query, where, serverTimestamp, doc, updateDoc } from "firebase/firestore";
@@ -167,7 +167,7 @@ const Cart = () => {
     rzp.open();
   };
 
-  const fetchTodayOrders = async () => {
+  const fetchTodayOrders = useCallback(async () => {
     const user = auth.currentUser;
     if (!user) return;
 
@@ -177,15 +177,15 @@ const Cart = () => {
     const todayList = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((o) => o.createdAt && o.createdAt.toDate().toLocaleDateString() === todayDateString);
 
     setTodayOrders(todayList);
-  };
+  }, []);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) fetchTodayOrders();
-    });
+    }, []);
 
     return () => unsubscribe();
-  }, []);
+  }, [fetchTodayOrders]);
 
   const handleCancelOrder = async (order) => {
     const confirm = window.confirm("Do you want to cancel this order?");

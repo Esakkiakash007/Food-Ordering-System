@@ -4,12 +4,11 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { FaTimes, FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaPhoneAlt, FaEnvelope, FaStar } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
 import Feedback from "../components/Feedback";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Home = () => {
       setCategories(list);
     };
     fetchCategories();
-  }, []);
+  }, [setCategories]);
 
   const handleClose = () => {
     setModalOpen(false);

@@ -7,7 +7,7 @@ import { useCart } from "../context/CartContext";
 const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
-  const { cartItems } = useCart();
+  const {} = useCart();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {

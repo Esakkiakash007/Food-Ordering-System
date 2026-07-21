@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -29,7 +29,7 @@ const RestaurantDetails = () => {
     return `${h}:${minute} ${ampm}`;
   };
 
-  const fetchRestaurant = async () => {
+  const fetchRestaurant = useCallback(async () => {
     const q = query(collection(db, "restaurants"), where("restaurantId", "==", Number(restaurantId)), where("location", "==", currentLocation));
 
     const snap = await getDocs(q);
@@ -37,9 +37,9 @@ const RestaurantDetails = () => {
     if (!snap.empty) {
       setRestaurant({ id: snap.docs[0].id, ...snap.docs[0].data() });
     }
-  };
+  }, [restaurantId, currentLocation]);
 
-  const fetchMenuFoods = async () => {
+  const fetchMenuFoods = useCallback(async () => {
     const menuQuery = query(collection(db, "restaurantMenus"), where("restaurantId", "==", Number(restaurantId)), where("location", "==", currentLocation));
 
     const menuSnap = await getDocs(menuQuery);
@@ -65,12 +65,12 @@ const RestaurantDetails = () => {
     const uniqueFoods = Array.from(new Map(cleanFoods.map((item) => [item.id, item])).values());
 
     setFoods(uniqueFoods);
-  };
+  }, [restaurantId, currentLocation]);
 
   useEffect(() => {
     fetchRestaurant();
     fetchMenuFoods();
-  }, [restaurantId]);
+  }, [fetchRestaurant, fetchMenuFoods]);
 
   const filteredFoods = filter === "all" ? foods : foods.filter((f) => f.type?.toLowerCase() === filter);
   const recommendedFoods = foods.filter((f) => f.categoryId?.toString() === categoryName?.toString());

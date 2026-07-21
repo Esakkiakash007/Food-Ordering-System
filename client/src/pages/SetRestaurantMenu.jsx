@@ -15,7 +15,7 @@ const SetRestaurantMenu = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const [selectedRestaurantName, setSelectedRestaurantName] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [setSelectedCategory] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
