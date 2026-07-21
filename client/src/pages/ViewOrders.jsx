@@ -61,7 +61,7 @@ const ViewOrders = () => {
             marginBottom: "20px",
             padding: "10px 20px",
             borderRadius: "20px",
-            border: "none",
+
             background: "transparent",
             color: "#fc8019",
             cursor: "pointer",
@@ -122,7 +122,6 @@ const ViewOrders = () => {
             padding: "8px 16px",
             marginTop: "5px",
             borderRadius: "20px",
-            border: "none",
             background: "transparent",
             color: "#fc8019",
             cursor: "pointer",

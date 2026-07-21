@@ -22,8 +22,8 @@ const LocationPage = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [foodDialog, setFoodDialog] = useState(null);
 
-  const [popupRestaurants, setPopupRestaurants] = useState([]);
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [setPopupRestaurants] = useState([]);
+  const [setSelectedFood] = useState(null);
 
   useEffect(() => {
     const savedCity = localStorage.getItem("city");
@@ -123,20 +123,6 @@ const LocationPage = () => {
   const changeLocation = () => {
     localStorage.clear();
     setStep(1);
-  };
-
-  const highlightMatch = (text) => {
-    if (!search) return text;
-    const parts = text.split(new RegExp(`(${search})`, "gi"));
-    return parts.map((part, index) =>
-      part.toLowerCase() === search.toLowerCase() ? (
-        <span key={index} style={{ background: "#ffe0c7", fontWeight: "600" }}>
-          {part}
-        </span>
-      ) : (
-        part
-      ),
-    );
   };
 
   const handleFoodClick = async (food) => {

@@ -1,18 +1,17 @@
 // src/pages/Home.jsx
 import Header from "../components/Header";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { FaTimes, FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaStar } from "react-icons/fa";
+import { FaTimes, FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaPhoneAlt, FaEnvelope, FaStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import Feedback from "../components/Feedback";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
+  const [setCategories] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const { addToCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {

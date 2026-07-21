@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import { db, auth } from "../firebase";
-import { collection, addDoc, getDocs, query, where, serverTimestamp, doc, updateDoc, getDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 const getOrCreateUserNumber = async (user) => {
@@ -46,7 +46,7 @@ const Cart = () => {
   const { cartItems, increaseQty, decreaseQty, removeFromCart, clearCart } = useCart();
 
   const [todayOrders, setTodayOrders] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage] = useState(1);
   const [cashOnDelivery, setCashOnDelivery] = useState(false);
 
   const ordersPerPage = 5;
@@ -216,7 +216,6 @@ const Cart = () => {
   const indexOfLast = currentPage * ordersPerPage;
   const indexOfFirst = indexOfLast - ordersPerPage;
   const currentOrders = todayOrders.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(todayOrders.length / ordersPerPage);
 
   return (
     <div className="cartPage">

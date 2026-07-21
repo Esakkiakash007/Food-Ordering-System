@@ -184,7 +184,7 @@ export default SetRestaurantMenu;
 /* styles SAME */
 const styles = {
   page: { padding: "30px", background: "#f4f6f8", minHeight: "100vh", fontFamily: "Poppins" },
-  backBtn: { padding: "8px 16px", borderRadius: "20px", background: "transparent", color: "#fc8019", border: "none", border: "2px solid #fc8019" },
+  backBtn: { padding: "8px 16px", borderRadius: "20px", background: "transparent", color: "#fc8019", border: "2px solid #fc8019" },
   container: { display: "flex", gap: "20px", marginTop: "20px" },
   left: { width: "40%", background: "#fff", padding: "20px", borderRadius: "16px" },
   right: { width: "60%", background: "#fff", padding: "20px", borderRadius: "16px" },

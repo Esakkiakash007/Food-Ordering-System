@@ -49,7 +49,7 @@ const ViewFeedback = () => {
           marginBottom: "20px",
           padding: "10px 20px",
           borderRadius: "20px",
-          border: "none",
+
           background: "transparent",
           color: "#fc8019",
           cursor: "pointer",
@@ -129,15 +129,6 @@ const ViewFeedback = () => {
       )}
     </div>
   );
-};
-
-const pageBtnStyle = {
-  padding: "8px 16px",
-  borderRadius: "20px",
-  border: "none",
-  background: "#fc8019",
-  color: "#fff",
-  cursor: "pointer",
 };
 
 export default ViewFeedback;

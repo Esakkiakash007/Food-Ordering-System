@@ -226,7 +226,6 @@ const styles = {
   backBtn: {
     padding: "8px 16px",
     borderRadius: "20px",
-    border: "none",
     border: "2px solid #fc8019",
     background: "transparent",
     color: "#fc8019",

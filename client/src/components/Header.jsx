@@ -3,14 +3,11 @@ import { auth } from "../firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const { cartItems } = useCart();
-
-  const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
