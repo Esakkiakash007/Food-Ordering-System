@@ -48,7 +48,6 @@ const Feedback = () => {
         timeStyle: "short",
       });
 
-
       await addDoc(collection(db, "feedbacks"), {
         name: user.displayName || "User",
         email: user.email,
@@ -58,7 +57,7 @@ const Feedback = () => {
         createdAt: serverTimestamp(),
       });
 
-      const response = await fetch("http://localhost:5000/api/send-feedback-mail", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/send-feedback-mail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

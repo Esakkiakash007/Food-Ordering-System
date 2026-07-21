@@ -78,7 +78,7 @@ const Cart = () => {
         createdAt: serverTimestamp(),
       });
 
-      await fetch("http://localhost:5000/api/send-order-mail", {
+      await fetch(`${process.env.REACT_APP_API_URL}/api/send-order-mail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -100,7 +100,7 @@ const Cart = () => {
 
     const amount = totalAmount;
 
-    const res = await fetch("http://localhost:5000/api/create-order", {
+    const res = fetch(`${process.env.REACT_APP_API_URL}/api/create-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount }),
@@ -134,7 +134,7 @@ const Cart = () => {
           createdAt: serverTimestamp(),
         });
 
-        await fetch("http://localhost:5000/api/send-order-mail", {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/send-order-mail`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -195,7 +195,7 @@ const Cart = () => {
       status: "cancelled",
     });
 
-    await fetch("http://localhost:5000/api/send-order-mail", {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/send-order-mail`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
